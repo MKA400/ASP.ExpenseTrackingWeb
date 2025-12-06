@@ -267,6 +267,43 @@
             </ul>
         </nav>
     </header>
+<!--cooki-->
+<section class="cookie-session-info">
+        <h3>Session and Cookie Data</h3>
+        <p>Session ID: <span id="sessionId"></span></p>
+        <p>Cookie User Name: <span id="cookieUserName"></span></p>
+    </section>
+
+<footer>
+        <p>&copy; 2025 P_Expense. All Rights Reserved.</p>
+    </footer>
+<script>
+  document.getElementById("sessionId").textContent = sessionStorage.getItem("sessionId");
+        document.getElementById("cookieUserName").textContent = getCookie("userName");
+  function getCookie(cookieName) {
+            var name = cookieName + "=";
+            var decodedCookie = decodeURIComponent(document.cookie);
+            var ca = decodedCookie.split(';');
+            for(var i = 0; i < ca.length; i++) {
+                var c = ca[i];
+                while (c.charAt(0) == ' ') {
+                    c = c.substring(1);
+                }
+                if (c.indexOf(name) == 0) {
+                    return c.substring(name.length, c.length);
+                }
+            }
+            return "";
+        }
+    </script>
+
+
+
+
+
+
+
+
 
     <!-- HOME SECTION -->
     <section id="home" class="card">
